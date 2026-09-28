@@ -1,16 +1,22 @@
-# React + Vite
+# Ahmedabad Metro Asset Operations
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+React operations console for browsing infrastructure assets, inspecting per-asset audit history, reporting issues, and recording completed repairs.
 
-Currently, two official plugins are available:
+## Run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+1. Install client dependencies with `npm install`.
+2. Copy `.env.example` to `.env.local` and set `VITE_API_BASE_URL` to the backend API URL, including `/api`.
+3. Start the backend, then run `npm run dev` from this directory.
 
-## React Compiler
+The default API URL is `http://localhost:5000/api`.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Deploy to Vercel
 
-## Expanding the Oxlint configuration
+Set `VITE_API_BASE_URL` in the Vercel project's Environment Variables to the deployed API URL, including `/api`, then redeploy. Configure the backend CORS allowlist to include the deployed frontend origin before exposing the service publicly.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+The identity panel accepts an existing bearer token in memory for the current page session. It is not persisted in local storage. The Citizen, Technician, and Admin selector previews workflows only; the API remains responsible for verifying token identity and role authorization.
+
+## Checks
+
+- `npm run lint`
+- `npm run build`
